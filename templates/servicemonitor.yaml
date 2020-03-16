@@ -11,6 +11,7 @@ spec:
       port: metrics
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "emqx.fullname" . }}
+      app.kubernetes.io/name: {{ include "emqx.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
       type: headless
 {{ end }}

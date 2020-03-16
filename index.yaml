@@ -3,7 +3,17 @@ entries:
   emqx:
   - apiVersion: v2
     appVersion: v4.0.4
-    created: "2020-03-16T08:42:19.968049+02:00"
+    created: "2020-03-16T08:47:40.0773229+02:00"
+    description: A Helm chart for EMQ X
+    digest: cb0a19a22c1ee4af68f0b89d3ad106e095bd38e38d2de16040f079431e85d879
+    name: emqx
+    type: application
+    urls:
+    - packages/emqx-v4.0.4-3.tgz
+    version: v4.0.4-3
+  - apiVersion: v2
+    appVersion: v4.0.4
+    created: "2020-03-16T08:47:40.0707537+02:00"
     description: A Helm chart for EMQ X
     digest: a3c78d7c865b6dc5d754e4b5fa489dd19e368fde932a3df194239ade796d2b6a
     name: emqx
@@ -13,7 +23,7 @@ entries:
     version: v4.0.4-2
   - apiVersion: v2
     appVersion: v4.0.4
-    created: "2020-03-16T08:42:19.9646629+02:00"
+    created: "2020-03-16T08:47:40.0665912+02:00"
     description: A Helm chart for EMQ X
     digest: 6e8ba342e5b2a95c135411d4bd02a6833bf3a3055bda69c10fd1e251e2f24f88
     name: emqx
@@ -21,4 +31,4 @@ entries:
     urls:
     - packages/emqx-v4.0.4-1.tgz
     version: v4.0.4-1
-generated: "2020-03-16T08:42:19.9628128+02:00"
+generated: "2020-03-16T08:47:40.0644702+02:00"
