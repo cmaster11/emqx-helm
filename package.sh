@@ -4,3 +4,4 @@ DIR=$(dirname "$(command -v greadlink >/dev/null 2>&1 && greadlink -f "$0" || re
 
 helm package "$DIR" -d "$DIR/packages"
 helm repo index .
+git add "$DIR/packages/"

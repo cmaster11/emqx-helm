@@ -8,6 +8,9 @@ image:
   repository: emqx/emqx
   pullPolicy: IfNotPresent
 
+enablePushGateway: false
+enableServiceMonitor: false
+
 persistence:
   enabled: false
   size: 20Mi

@@ -1,0 +1,16 @@
+{{ if .Values.enableServiceMonitor }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/name: {{ include "emqx.fullname" . }}
+  name: {{ include "emqx.fullname" . }}
+spec:
+  endpoints:
+    - interval: 15s
+      port: metrics
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "emqx.fullname" . }}
+      type: headless
+{{ end }}

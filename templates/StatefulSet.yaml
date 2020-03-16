@@ -113,6 +113,26 @@ spec:
               port: {{ .Values.emqxConfig.EMQX_MANAGEMENT__LISTENER__HTTP | default 8081 }}
             initialDelaySeconds: 5
             periodSeconds: 5
+        {{ if .Values.enablePushGateway }}
+        - image: prom/pushgateway:v1.0.1
+          name: pushgateway
+          ports:
+            - name: metrics
+              containerPort: 9091
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /-/healthy
+              port: 9091
+            initialDelaySeconds: 1
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: 9091
+            initialDelaySeconds: 1
+            timeoutSeconds: 10
+        {{ end }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

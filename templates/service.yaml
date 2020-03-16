@@ -50,6 +50,7 @@ metadata:
     helm.sh/chart: {{ include "emqx.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+    type: headless
 spec:
   type: ClusterIP
   sessionAffinity: None
@@ -79,6 +80,12 @@ spec:
     port: {{ .Values.emqxConfig.EMQX_DASHBOARD__LISTENER__HTTP | default 18083 }}
     protocol: TCP
     targetPort: {{ .Values.emqxConfig.EMQX_DASHBOARD__LISTENER__HTTP | default 18083 }}
+  {{ if .Values.enablePushGateway }}
+  - name: metrics
+    port: 9091
+    protocol: TCP
+    targetPort: 9091
+  {{ end }}
   selector:
     app.kubernetes.io/name: {{ include "emqx.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
