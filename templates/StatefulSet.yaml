@@ -65,10 +65,10 @@ spec:
       {{- if .Values.volumes  }}
       {{- toYaml .Values.volumes | nindent 6 }}
       {{- end }}
-      {{- if .Values.imagePullSecrets  }}
+      {{ if .Values.imagePullSecrets  }}
       imagePullSecrets:
       {{ toYaml .Values.imagePullSecrets | indent 6 | trim }}
-      {{- end }}
+      {{ end }}
       serviceAccountName:  {{ include "emqx.fullname" . }}
       securityContext:
         fsGroup: 1000
